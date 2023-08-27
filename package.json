@@ -5,14 +5,20 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon server.js",
     "start": "node server.js"
   },
-  "keywords": ["API", "NodeJS"],
+  "keywords": [
+    "API",
+    "NodeJS"
+  ],
   "author": "Can Comertpay",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
     "mongoose": "^7.4.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }
