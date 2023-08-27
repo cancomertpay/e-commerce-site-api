@@ -6,7 +6,7 @@
 
 ## Technologies
 
-- The section created by Node.js, express.js, MongoDB.
+- This project created by using Node.js, Express.js, MongoDB.
 
 ## Cloning
 
