@@ -52,8 +52,8 @@ export const loginUserCtrl = asyncHandler(async (req, res) => {
       status: 'success',
       message: 'User logged in succesfully',
       userFound,
-      token: generateToken()
-    })
+      token: generateToken(userFound?._id)
+    });
   }else {
     throw new Error('Invalid login credentials')
   }
@@ -62,11 +62,12 @@ export const loginUserCtrl = asyncHandler(async (req, res) => {
 // @desc Get user profile
 // @route GET /api/v1/users/profile
 // @access Private
-export const getUserProfileCtrl = asyncHandler (async(req, res) => {
+export const getUserProfileCtrl = asyncHandler(async (req, res) => {
   const token = getTokenFromHeader(req)
+  console.log(token);
   // verify token 
   const verified = verifyToken(token);
-  console.log(verified);
+  console.log(req);
   res.json({
     msg: 'welcome to profile page'
   });
