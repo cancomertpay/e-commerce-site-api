@@ -1,6 +1,8 @@
 # E-Commerce Website API By Can Comertpay
 
-<img src='data-modelling-an-api.png' width='1200' height='600'>
+## Project Data Modelling
+
+<img src='project-data-modeling-logic.png' width='1200' height='600'>
 
 - This is my own e-commerce website back-end section.
 
