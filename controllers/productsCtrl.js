@@ -67,11 +67,21 @@ export const getProductsCtrl = asyncHandler(async(req, res) => {
     });
   }
 
-  // size by color
+  // filter by size
   if(req.query.size){
     productQuery = productQuery.find({
       sizes:{$regex: req.query.size, $options: "i"}
     });
+  }
+
+  // filter by price range
+  if(req.query.price) {
+    const priceRange = req.query.price.split("-");
+    // gte: greater or equal
+    // lte: less than or equal to
+    productQuery = productQuery.find({
+      price:{ $gte: priceRange[0], $lte: priceRange[1] }
+    })
   }
 
   // await the query
