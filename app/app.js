@@ -4,6 +4,7 @@ import express from 'express';
 import dbConnect from '../config/dbConnect.js';
 import { globalErrHandler, notFound } from '../middlewares/globalErrHandler.js';
 import userRoutes from '../routes/usersRoute.js';
+import productsRouter from '../routes/productRoute.js';
 
 
 // db connect
@@ -15,6 +16,8 @@ app.use(express.json());
 
 // routes
 app.use('/api/v1/users/', userRoutes);
+app.use('/api/v1/products/', productsRouter);
+
 
 // err middlewares
 app.use(notFound);
