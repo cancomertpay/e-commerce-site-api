@@ -64,10 +64,8 @@ export const loginUserCtrl = asyncHandler(async (req, res) => {
 // @access Private
 export const getUserProfileCtrl = asyncHandler(async (req, res) => {
   const token = getTokenFromHeader(req)
-  console.log(token);
   // verify token 
   const verified = verifyToken(token);
-  console.log(req);
   res.json({
     msg: 'welcome to profile page'
   });
