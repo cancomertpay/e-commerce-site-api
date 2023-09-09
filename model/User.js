@@ -27,18 +27,18 @@ const UserSchema = new Schema({
       type: Boolean,
       default: false,
     },
-    hasShippingAdress: {
+    hasShippingAddress: {
       type: Boolean,
       default: false,
     },
-    shippingAdress: {
+    shippingAddress: {
       firstName: {
         type: String,
       },
       lastName: {
         type: String,
       },
-      adress: {
+      address: {
         type: String,
       },
       city: {
