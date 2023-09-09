@@ -8,6 +8,7 @@ import productsRouter from '../routes/productRoute.js';
 import categoriesRouter from '../routes/categoriesRouter.js';
 import brandsRouter from '../routes/brandsRouter.js';
 import colorsRouter from '../routes/colorsRouter.js';
+import reviewRouter from '../routes/reviewRouter.js';
 
 // db connect
 dbConnect();
@@ -22,6 +23,7 @@ app.use('/api/v1/products/', productsRouter);
 app.use('/api/v1/categories/', categoriesRouter);
 app.use('/api/v1/brands/', brandsRouter);
 app.use('/api/v1/colors/', colorsRouter);
+app.use('/api/v1/reviews/', reviewRouter);
 
 
 // err middlewares
