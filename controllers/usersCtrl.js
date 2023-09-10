@@ -8,7 +8,6 @@ import { verifyToken } from '../utils/verifyToken.js';
 // @desc Register user
 // @route POST /api/v1/users/register
 // @access Private/Admin
-
 export const registerUserCtrl = asyncHandler(async (req, res) => {
   const {fullname, email, password} = req.body;
   // Check user exist
@@ -38,7 +37,6 @@ export const registerUserCtrl = asyncHandler(async (req, res) => {
 // @desc Login user
 // @route POST /api/v1/users/login
 // @access Public 
-
 export const loginUserCtrl = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
