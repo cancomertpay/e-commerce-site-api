@@ -6,14 +6,12 @@ import Order from "../model/Order.js";
 import Product from "../model/Product.js";
 import User from "../model/User.js";
 
-//@desc create orders
-//@route POST /api/v1/orders
-//@access private
-
-
 // stripe instance
 const stripe = new Stripe(process.env.STRIPE_KEY);
 
+//@desc create orders
+//@route POST /api/v1/orders
+//@access private
 export const createOrderCtrl = asyncHandler(async (req, res) => {
   // get the payload
   const {orderItems, shippingAddress, totalPrice} = req.body;
@@ -85,3 +83,18 @@ export const createOrderCtrl = asyncHandler(async (req, res) => {
   });
   res.send({url: session.url});
 });
+
+
+//@desc get all orders
+//@route GET /api/v1/orders
+//@access private
+export const getAllOrdersCtrl = asyncHandler(async(req,res) => {
+  // find all orders
+  const orders = await Order.find();
+  res.json({
+    success: true,
+    message: "All orders",
+    orders
+  })
+})
+
