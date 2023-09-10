@@ -16,18 +16,6 @@ import orderRouter from '../routes/ordersRouter.js';
 dbConnect();
 const app = express();
 
-// pass incoming data
-app.use(express.json());
-
-// routes
-app.use('/api/v1/users/', userRoutes);
-app.use('/api/v1/products/', productsRouter);
-app.use('/api/v1/categories/', categoriesRouter);
-app.use('/api/v1/brands/', brandsRouter);
-app.use('/api/v1/colors/', colorsRouter);
-app.use('/api/v1/reviews/', reviewRouter);
-app.use('/api/v1/orders/', orderRouter);
-
 // stripe webhook
 // stripe instance
 const stripe = new Stripe(process.env.STRIPE_KEY);
@@ -44,6 +32,7 @@ app.post('/webhook', express.raw({type: 'application/json'}), (request, response
     event = stripe.webhooks.constructEvent(request.body, sig, endpointSecret);
     console.log("event");
   } catch (err) {
+    console.log("err", err.message);
     response.status(400).send(`Webhook Error: ${err.message}`);
     return;
   }
@@ -63,6 +52,17 @@ app.post('/webhook', express.raw({type: 'application/json'}), (request, response
   response.send();
 });
 
+// pass incoming data
+app.use(express.json());
+
+// routes
+app.use('/api/v1/users/', userRoutes);
+app.use('/api/v1/products/', productsRouter);
+app.use('/api/v1/categories/', categoriesRouter);
+app.use('/api/v1/brands/', brandsRouter);
+app.use('/api/v1/colors/', colorsRouter);
+app.use('/api/v1/reviews/', reviewRouter);
+app.use('/api/v1/orders/', orderRouter);
 
 // err middlewares
 app.use(notFound);
