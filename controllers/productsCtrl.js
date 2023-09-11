@@ -7,65 +7,66 @@ import Brand from "../model/Brand.js"
 // @route POST /api/v1/products
 // @access Private/Admin
 export const createProductCtrl = asyncHandler(async(req, res) => {
-  const {name, description, category, sizes, colors, price, totalQty, brand} = req.body;
-  // Product exists
-  const productExists = await Product.findOne({ name });
-  if(productExists) {
-    throw new Error("Product already exists")
-  }
+  console.log(req.files);
+  // const {name, description, category, sizes, colors, price, totalQty, brand} = req.body;
+  // // Product exists
+  // const productExists = await Product.findOne({ name });
+  // if(productExists) {
+  //   throw new Error("Product already exists")
+  // }
 
-  // find the brand
-  const brandFound = await Brand.findOne({
-    name: brand?.toLowerCase()
-  });
-  if(!brandFound) {
-    throw new Error(
-      "Brand not found, please create a brand first or check brand name."
-    );
-  }
+  // // find the brand
+  // const brandFound = await Brand.findOne({
+  //   name: brand?.toLowerCase()
+  // });
+  // if(!brandFound) {
+  //   throw new Error(
+  //     "Brand not found, please create a brand first or check brand name."
+  //   );
+  // }
 
-  // find the category
-  const categoryFound = await Category.findOne({
-    name: category
-  });
-  if(!categoryFound) {
-    throw new Error(
-      "Category not found, please create a category first or check category name."
-    );
-  }
+  // // find the category
+  // const categoryFound = await Category.findOne({
+  //   name: category
+  // });
+  // if(!categoryFound) {
+  //   throw new Error(
+  //     "Category not found, please create a category first or check category name."
+  //   );
+  // }
 
 
-  // create the product
-  const product = await Product.create({
-    name, 
-    description, 
-    category, 
-    sizes, 
-    colors, 
-    user: req.userAuthId, 
-    price, 
-    totalQty,
-    brand
-  });
+  // // create the product
+  // const product = await Product.create({
+  //   name, 
+  //   description, 
+  //   category, 
+  //   sizes, 
+  //   colors, 
+  //   user: req.userAuthId, 
+  //   price, 
+  //   totalQty,
+  //   brand
+  // });
 
-  // push the product into brand
-  brandFound.products.push(product._id);
+  // // push the product into brand
+  // brandFound.products.push(product._id);
 
-  // resave
-  await brandFound.save();
+  // // resave
+  // await brandFound.save();
 
-  // push the product into category
-  categoryFound.products.push(product._id);
+  // // push the product into category
+  // categoryFound.products.push(product._id);
 
-  // resave
-  await categoryFound.save();
+  // // resave
+  // await categoryFound.save();
 
-  // send response
-  res.json({
-    status: "success",
-    message: "Product created successfully",
-    product,
-  })
+  // // send response
+  // res.json({
+  //   status: "success",
+  //   message: "Product created successfully",
+  //   product,
+  // })
 });
 
 // @desc Get all products

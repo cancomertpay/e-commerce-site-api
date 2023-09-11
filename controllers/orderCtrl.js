@@ -18,17 +18,16 @@ export const createOrderCtrl = asyncHandler(async (req, res) => {
   const { coupon } = req?.query;
 
   const couponFound = await Coupon.findOne({
-    code: coupon?.toUpperCase()
+    code: coupon?.toUpperCase(),
   });
-
-  if(couponFound?.isExpired){
-    throw new Error("Coupon has expired")
+  if (couponFound?.isExpired) {
+    throw new Error("Coupon has expired");
   }
-  if(!couponFound) {
-    throw new Error("Coupon does exists")
+  if (!couponFound) {
+    throw new Error("Coupon does exists");
   }
 
-  // get discount
+  //get discount
   const discount = couponFound?.discount / 100;
 
   //Get the payload(customer, orderItems, shipppingAddress, totalPrice);
