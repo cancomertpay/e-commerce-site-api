@@ -6,8 +6,7 @@
   "type": "module",
   "scripts": {
     "server": "nodemon server.js",
-    "start": "node server.js",
-    "build": "node server.js"
+    "start": "node server.js"
   },
   "keywords": [
     "API",
@@ -26,7 +25,8 @@
     "mongoose": "^7.4.5",
     "multer": "^1.4.5-lts.1",
     "multer-storage-cloudinary": "^4.0.0",
-    "stripe": "^13.5.0"
+    "stripe": "^13.5.0",
+    "yarn": "^1.22.19"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
