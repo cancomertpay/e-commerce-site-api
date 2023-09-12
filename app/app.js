@@ -86,9 +86,10 @@ app.use(express.json());
 //url encoded
 app.use(express.urlencoded({ extended: true }));
 
+
+
 //server static files
 app.use(express.static("public"));
-
 
 //routes
 //Home route
