@@ -24,7 +24,7 @@ const app = express();
 const stripe = new Stripe(process.env.STRIPE_KEY);
 
 // This is your Stripe CLI webhook secret for testing your endpoint locally.
-const endpointSecret =
+const endpointSecret = 
   "whsec_1deef0d6a231810e8b236a0e005aba540d16db57ef1c28995e89a2110226f3df";
 
 app.post(
@@ -89,6 +89,8 @@ app.use(express.urlencoded({ extended: true }));
 
 //server static files
 app.use(express.static("public"));
+
+
 //routes
 //Home route
 app.get("/", (req, res) => {

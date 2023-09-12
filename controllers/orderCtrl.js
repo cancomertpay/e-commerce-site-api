@@ -6,13 +6,15 @@ import Order from "../model/Order.js";
 import Product from "../model/Product.js";
 import User from "../model/User.js";
 import Coupon from "../model/Coupon.js";
-//@desc create orders
-//@route POST /api/v1/orders
-//@access private
+
+
 
 //stripe instance
 const stripe = new Stripe(process.env.STRIPE_KEY);
 
+//@desc create orders
+//@route POST /api/v1/orders
+//@access private
 export const createOrderCtrl = asyncHandler(async (req, res) => {
   //get teh coupon
   const { coupon } = req?.query;
@@ -101,7 +103,6 @@ export const createOrderCtrl = asyncHandler(async (req, res) => {
 //@desc get all orders
 //@route GET /api/v1/orders
 //@access private
-
 export const getAllOrdersCtrl = asyncHandler(async (req, res) => {
   //find all orders
   const orders = await Order.find().populate("user");
@@ -115,7 +116,6 @@ export const getAllOrdersCtrl = asyncHandler(async (req, res) => {
 //@desc get single order
 //@route GET /api/v1/orders/:id
 //@access private/admin
-
 export const getSingleOrderCtrl = asyncHandler(async (req, res) => {
   //get the id from params
   const id = req.params.id;
