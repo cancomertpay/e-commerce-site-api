@@ -1,6 +1,6 @@
 import express from "express";
-import { createCategoryCtrl, getAllCategoriesCtrl, getSingleCategoryCtrl, updateCategoryCtrl, deleteCategoryCtrl } from "../controllers/categoriesCtrl.js";
 import { isLoggedIn } from "../middlewares/isLoggedin.js";
+import { createCategoryCtrl, getAllCategoriesCtrl, getSingleCategoryCtrl, updateCategoryCtrl, deleteCategoryCtrl } from "../controllers/categoriesCtrl.js";
 import categoryFileUpload from "../config/categoryUpload.js";
 import isAdmin from "../middlewares/isAdmin.js";
 
