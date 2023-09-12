@@ -1,6 +1,6 @@
 import express from 'express';
 import { registerUserCtrl, loginUserCtrl, getUserProfileCtrl, updateShippingAddressCtrl } from '../controllers/usersCtrl.js';
-import { isLoggedIn } from '../middlewares/isLoggedin.js';
+import { isLoggedIn } from '../middlewares/isLoggedIn.js';
 
 const userRoutes = express.Router();
 

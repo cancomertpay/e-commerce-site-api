@@ -1,6 +1,6 @@
 import express from "express";
 import { createReviewCtrl } from "../controllers/reviewsCtrl.js";
-import { isLoggedIn } from "../middlewares/isLoggedin.js";
+import { isLoggedIn } from "../middlewares/isLoggedIn.js";
 
 const reviewRouter = express.Router();
 
