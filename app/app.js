@@ -18,7 +18,6 @@ import couponsRouter from "../routes/couponsRouter.js";
 //db connect
 dbConnect();
 const app = express();
-const PORT = process.env.PORT || 2030;
 //Stripe webhook
 //stripe instance
 const stripe = new Stripe(process.env.STRIPE_KEY);
@@ -108,8 +107,5 @@ app.use("/api/v1/coupons/", couponsRouter);
 //err middleware
 app.use(notFound);
 app.use(globalErrHandler);
-app.listen(PORT, () => {
-  console.log(`server started on port ${PORT}`);
-});
 
 export default app;
